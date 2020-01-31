@@ -1,0 +1,27 @@
+name: jupyter
+channels:
+  - conda-forge
+dependencies:
+  - pip
+  - scipy
+  - numpy
+  - sympy
+  - matplotlib
+  - seaborn
+  - pandas
+  - scikit-learn
+  - cython
+  - numba
+  - line_profiler
+  - ipython
+  - jupyter
+  - nodejs >= 6.11.5
+  - jupyterlab
+  - jupyter_contrib_nbextensions
+  - jupyter_nbextensions_configurator
+  - notebook
+  - ipympl
+  - ipywidgets
+  - widgetsnbextension
+  - pip:
+    - jupyterlab_latex

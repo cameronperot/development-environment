@@ -1,0 +1,12 @@
+[Unit]
+Description=Jupyter
+
+[Service]
+User=user
+Group=jupyter
+Environment="PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/miniconda3/envs/jupyter/bin"
+Environment="JULIA_NUM_THREADS=8"
+ExecStart=/opt/miniconda3/envs/jupyter/bin/jupyter lab
+
+[Install]
+WantedBy=multi-user.target

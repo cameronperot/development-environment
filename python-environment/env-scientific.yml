@@ -1,0 +1,15 @@
+name: scientific
+channels:
+  - conda-forge
+dependencies:
+  - scipy
+  - numpy
+  - sympy
+  - matplotlib
+  - seaborn
+  - pandas
+  - scikit-learn
+  - cython
+  - numba
+  - line_profiler
+  - ipython
