@@ -2,26 +2,26 @@ name: jupyter
 channels:
   - conda-forge
 dependencies:
-  - pip
-  - scipy
-  - numpy
-  - sympy
-  - matplotlib
-  - seaborn
-  - pandas
-  - scikit-learn
   - cython
-  - numba
-  - line_profiler
   - ipython
+#  - ipympl
+#  - ipywidgets
   - jupyter
-  - nodejs >= 6.11.5
   - jupyterlab
-  - jupyter_contrib_nbextensions
-  - jupyter_nbextensions_configurator
+#  - jupyter_contrib_nbextensions
+#  - jupyter_nbextensions_configurator
+  - line_profiler
+  - matplotlib
+  - nodejs >= 6.11.5
   - notebook
-  - ipympl
-  - ipywidgets
-  - widgetsnbextension
+  - numba
+  - numpy
+  - pandas
+  - pip
+  - scikit-learn
+  - scipy
+  - seaborn
+#  - sympy
+#  - widgetsnbextension
   - pip:
     - jupyterlab_latex
