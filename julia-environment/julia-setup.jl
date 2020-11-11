@@ -1,25 +1,34 @@
 using Pkg
 
 pkgs = [
-	"IJulia",
-	"Plots",
-	"PyPlot",
-	"PyCall",
-	"LaTeXStrings",
-	"DataFrames",
-	"CSV",
-	"BenchmarkTools",
-	"DistributedArrays",
-	"LsqFit",
-	"JLD",
-	"ProfileView",
-	"Revise",
-	"HDF5"
+    "BenchmarkTools",
+    "CSV",
+    "DataFrames",
+    "DistributedArrays",
+    "Distributions",
+    "Documenter",
+    "FFTW",
+    "Flux",
+    "HDF5",
+    "IJulia",
+    "ImageIO",
+    "ImageMagick",
+    "Images",
+    "JLD",
+    "JuliaFormatter",
+    "LaTeXStrings",
+    "LsqFit",
+    "NPZ",
+    "OhMyREPL",
+    "Plots",
+    "ProfileView",
+    "PyCall",
+    "PyPlot",
+    "Revise",
+    "Zygote",
 ]
 
-for pkg in pkgs
-	Pkg.add(pkg)
-end
+Pkg.add(pkgs)
 
 ENV["JUPYTER"] = "/opt/miniconda3/envs/jupyter/bin/jupyter"
 ENV["PYTHON"]  = "/opt/miniconda3/envs/jupyter/bin/python"
