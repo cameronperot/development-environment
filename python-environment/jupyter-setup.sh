@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -eu -o pipefail
 
 # Set variables
 conda_dir=/opt/miniconda3
