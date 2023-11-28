@@ -1,22 +1,24 @@
 #!/bin/bash
 set -eu -o pipefail
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd -P)"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd -P )"
 
-install_dir=$HOME
-rm -rf $install_dir
-mkdir $install_dir
+INSTALL_DIR=/opt/julia
+sudo rm -rf ${INSTALL_DIR}
+sudo mkdir ${INSTALL_DIR}
+sudo chown ${USER}:${USER} ${INSTALL_DIR}
 
-version_major=1
-version_minor=5
-version_patch=3
-version=$version_major.$version_minor.$version_patch
+VERSION=${1}.${2}.${3}
 
-url=https://julialang-s3.julialang.org/bin/linux/x64/$version_major.$version_minor/julia-$version-linux-x86_64.tar.gz
-file=/tmp/julia-$version-linux-x86_64.tar.gz
+URL=https://julialang-s3.julialang.org/bin/linux/x64/${1}.${2}/julia-${VERSION}-linux-x86_64.tar.gz
+FILE=/tmp/julia-${VERSION}-linux-x86_64.tar.gz
 
-wget -O $file $url
-tar --directory $install_dir -xf $file
+wget -O ${FILE} ${URL}
+tar --directory ${INSTALL_DIR} -xf ${FILE}
 
 sudo dnf install hdf5-devel
-$install_dir/julia-$version/bin/julia $DIR/julia-setup.jl
+${INSTALL_DIR}/julia-${VERSION}/bin/julia ${DIR}/julia-setup.jl
+
+cd ${INSTALL_DIR}/julia-${VERSION}
+cp -a ${DIR}/precompile_plots*.jl ./
+./bin/julia precompile_plots_image.jl

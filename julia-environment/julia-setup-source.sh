@@ -2,6 +2,7 @@
 set -eu -o pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd -P)"
+JULIA_VERSION="1.9.3"
 
 sudo dnf install \
     libatomic \
@@ -11,13 +12,13 @@ sudo dnf install \
     wget \
     m4 \
     cmake \
+    hdf5-devel \
     pkg-config
 
-setup_dir=$PWD
-cd $HOME
-git clone git://github.com/JuliaLang/julia.git
-git checkout v1.5.3
-make
+cd /opt/julia
+git clone https://github.com/JuliaLang/julia.git "julia-$JULIA_VERSION"
+cd "julia-$JULIA_VERSION"
+git checkout "v$JULIA_VERSION"
+make -j8
 
-sudo dnf install hdf5-devel
-$HOME/julia/julia $DIR/julia-setup.jl
+"/opt/julia/julia-$JULIA_VERSION/julia" $DIR/julia-setup.jl
