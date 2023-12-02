@@ -1,6 +1,5 @@
-# Programming Environment Setup Scripts
+# Development Environment
 
-## Table of Contents
-[Python Environment](python-environment/README.md)
-
-[Julia Environment](julia-environment/README.md)
+## Environments
+- [Python](python/README.md)
+- [Julia](julia/README.md)
