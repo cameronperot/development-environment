@@ -39,7 +39,7 @@ dependencies:
   - xgboost
   - yarn
   - pip:
-    - alphalens
+    - alphalens-reloaded
     - aquirdturtle_collapsible_headings
     - bidask
     - black[jupyter]
@@ -47,7 +47,7 @@ dependencies:
     - cvxpy
     - darts
     - dask-labextension
-    - empyrical
+    - empyrical-reloaded
     - ipympl
     - ipywidgets
     - isort
@@ -57,10 +57,10 @@ dependencies:
     - jupyterlab_vim
     - lckr-jupyterlab-variableinspector
     - mlflow
+    - mlforecast
     - ml_insights
     - nbqa
     - neuralforecast
-    - mlforecast
     - openbb
     - optuna
     - pandas-datareader
@@ -68,7 +68,7 @@ dependencies:
     - pandas_ta
     - polars
     - pre-commit
-    - pyfolio
+    - pyfolio-reloaded
     - pynvim
     - pysabr
     - pyvinecopulib
