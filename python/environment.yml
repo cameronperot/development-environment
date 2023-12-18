@@ -6,11 +6,14 @@ dependencies:
   - dask
   - flake8
   - ipykernel
+  - ipympl
+  - ipywidgets
   - jax
   - joblib
   - jupyterlab
   - lightgbm
   - matplotlib
+  - mlflow
   - mypy
   - networkx
   - nodejs
@@ -19,6 +22,7 @@ dependencies:
   - pandas
   - pip
   - plotly
+  - pre-commit
   - psutil
   - pylint
   - pytest
@@ -48,15 +52,12 @@ dependencies:
     - darts
     - dask-labextension
     - empyrical-reloaded
-    - ipympl
-    - ipywidgets
     - isort
     - jupyter-server-proxy
     - jupyterlab-drawio
     - jupyterlab-execute-time
     - jupyterlab_vim
     - lckr-jupyterlab-variableinspector
-    - mlflow
     - mlforecast
     - ml_insights
     - nbqa
@@ -67,7 +68,6 @@ dependencies:
     - pandas_market_calendars
     - pandas_ta
     - polars
-    - pre-commit
     - pyfolio-reloaded
     - pynvim
     - pysabr
