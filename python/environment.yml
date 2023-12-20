@@ -13,7 +13,6 @@ dependencies:
   - jupyterlab
   - lightgbm
   - matplotlib
-  - mlflow
   - mypy
   - networkx
   - nodejs
@@ -27,24 +26,25 @@ dependencies:
   - pylint
   - pytest
   - pytest-cov
-  - pytorch::pytorch
-  - pytorch::torchvision
-  - pytorch::torchaudio
   - pytorch::cpuonly
+  - pytorch::pytorch
+  - pytorch::torchaudio
+  - pytorch::torchvision
   - pytz
   - requests
-  - scipy
-  - seaborn
-  - shap
   - scikit-learn
   - scikit-learn-intelex
+  - scipy
+  - shap
   - statsmodels
   - tqdm
   - xgboost
   - yarn
   - pip:
+    - TA-Lib
     - alphalens-reloaded
     - aquirdturtle_collapsible_headings
+    - backtrader
     - bidask
     - black[jupyter]
     - corr-shap
@@ -58,8 +58,9 @@ dependencies:
     - jupyterlab-execute-time
     - jupyterlab_vim
     - lckr-jupyterlab-variableinspector
-    - mlforecast
     - ml_insights
+    - mlflow
+    - mlforecast
     - nbqa
     - neuralforecast
     - openbb
@@ -75,7 +76,7 @@ dependencies:
     - quantstats
     - riskfolio-lib
     - ruff
+    - seaborn
     - statsforecast
-    - TA-Lib
     - web3
     - zipline-reloaded
