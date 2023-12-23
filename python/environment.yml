@@ -78,5 +78,6 @@ dependencies:
     - ruff
     - seaborn
     - statsforecast
+    - utilsforecast
     - web3
     - zipline-reloaded
