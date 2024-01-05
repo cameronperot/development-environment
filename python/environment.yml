@@ -52,12 +52,14 @@ dependencies:
     - darts
     - dask-labextension
     - empyrical-reloaded
+    - interpret
     - isort
     - jupyter-server-proxy
     - jupyterlab-drawio
     - jupyterlab-execute-time
     - jupyterlab_vim
     - lckr-jupyterlab-variableinspector
+    - mapie
     - ml_insights
     - mlflow
     - mlforecast
@@ -69,6 +71,7 @@ dependencies:
     - pandas_market_calendars
     - pandas_ta
     - polars
+    - puncc
     - pyfolio-reloaded
     - pynvim
     - pysabr
