@@ -51,6 +51,7 @@ dependencies:
     - cvxpy
     - darts
     - dask-labextension
+    - dvc
     - empyrical-reloaded
     - interpret
     - isort
