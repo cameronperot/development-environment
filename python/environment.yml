@@ -3,7 +3,7 @@ channels:
   - defaults
 dependencies:
   - python=3.11
-  - dask
+  - dask>=2023.1.0
   - flake8
   - ipykernel
   - ipympl
@@ -18,12 +18,13 @@ dependencies:
   - nodejs
   - numba::numba
   - numpy
-  - pandas
+  - pandas>=2.0.0
   - pip
   - plotly
   - pre-commit
   - psutil
   - pylint
+  - pyspark
   - pytest
   - pytest-cov
   - pytorch::cpuonly
@@ -50,7 +51,6 @@ dependencies:
     - corr-shap
     - cvxpy
     - darts
-    - dask-labextension
     - dvc
     - empyrical-reloaded
     - interpret
@@ -84,5 +84,6 @@ dependencies:
     - seaborn
     - statsforecast
     - utilsforecast
+    - venn-abers
     - web3
     - zipline-reloaded
