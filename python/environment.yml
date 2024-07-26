@@ -19,10 +19,12 @@ dependencies:
   - numba::numba
   - numpy
   - pandas>=2.0.0
+  - pandas-stubs
   - pip
   - plotly
   - pre-commit
   - psutil
+  - pydantic
   - pylint
   - pyspark
   - pytest
@@ -51,7 +53,7 @@ dependencies:
     - corr-shap
     - cvxpy
     - darts
-    - dvc
+    #- dvc # causes pip install to run indefinitely
     - empyrical-reloaded
     - interpret
     - isort
