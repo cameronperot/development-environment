@@ -30,6 +30,7 @@ RUN echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt
         git \
         gnupg \
         htop \
+        iputils-ping \
         libglib2.0-0 \
         libsm6 \
         libxext6 \
@@ -50,14 +51,6 @@ RUN git clone https://github.com/cameronperot/shell-scripts.git /tmp/shell-scrip
     && cd /tmp/shell-scripts/setup-scripts \
     && ./ta-lib.sh \
     && rm -rf /tmp/shell-scripts
-
-# install Python packages and clean up temp files after
-COPY environment.yml /tmp/environment.yml
-RUN conda env update -n base -f /tmp/environment.yml \
-    && conda update conda \
-    && conda clean --all -y \
-    && pip cache purge \
-    && python -c "import matplotlib.pyplot, mlflow, numpy, pandas, seaborn"
 
 # create the new user
 ARG NEW_USER=dev
@@ -81,6 +74,14 @@ COPY ./jupyter_notebook_config.py /home/${NEW_USER}/.jupyter/jupyter_notebook_co
 WORKDIR /home/${NEW_USER}
 RUN chown -R ${NEW_USER}:${NEW_USER} /home/${NEW_USER}
 USER ${NEW_USER}
+
+# install Python packages and clean up temp files after
+COPY environment.yml /tmp/environment.yml
+RUN conda env update -n base -f /tmp/environment.yml \
+    && conda update conda \
+    && conda clean --all -y \
+    && pip cache purge \
+    && python -c "import matplotlib.pyplot, mlflow, numpy, pandas, seaborn"
 
 # configure the user's environment
 RUN git clone https://github.com/cameronperot/environment-setup.git /tmp/environment-setup \
