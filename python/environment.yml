@@ -2,7 +2,8 @@ name: dev
 channels:
   - defaults
 dependencies:
-  - python=3.11
+  - python=3.12
+  - alembic
   - dask>=2023.1.0
   - flake8
   - ipykernel
@@ -14,21 +15,20 @@ dependencies:
   - lightgbm
   - matplotlib
   - mypy
-  - networkx
   - nodejs
   - numba::numba
   - numpy
-  - pandas>=2.0.0
   - pandas-stubs
+  - pandas>=2.0.0
   - pip
   - plotly
   - pre-commit
   - psutil
   - pydantic
   - pylint
-  - pyspark
   - pytest
   - pytest-cov
+  - python-graphviz
   - pytorch::cpuonly
   - pytorch::pytorch
   - pytorch::torchaudio
@@ -36,26 +36,19 @@ dependencies:
   - pytz
   - requests
   - scikit-learn
-  - scikit-learn-intelex
   - scipy
   - shap
+  - sqlalchemy
+  - sqlalchemy-utils
   - statsmodels
   - tqdm
   - xgboost
   - yarn
   - pip:
-    - TA-Lib
-    - alphalens-reloaded
     - aquirdturtle_collapsible_headings
-    - backtrader
-    - bidask
     - black[jupyter]
     - corr-shap
     - cvxpy
-    - darts
-    #- dvc # causes pip install to run indefinitely
-    - empyrical-reloaded
-    - interpret
     - isort
     - jupyter-server-proxy
     - jupyterlab-drawio
@@ -63,29 +56,15 @@ dependencies:
     - jupyterlab_vim
     - lckr-jupyterlab-variableinspector
     - mapie
-    - ml_insights
-    - mlflow
-    - mlforecast
     - nbqa
-    - neuralforecast
-    - openbb
     - optuna
+    - optuna-integration
     - pandas-datareader
     - pandas_market_calendars
-    - pandas_ta
-    #- piml # requires Python <= 3.10
     - polars
-    - puncc
-    - pyfolio-reloaded
+    - psycopg2
     - pynvim
-    - pysabr
-    - pyvinecopulib
-    - quantstats
-    - riskfolio-lib
+    - ranger-fm
     - ruff
     - seaborn
-    - statsforecast
-    - utilsforecast
-    - venn-abers
-    - web3
-    - zipline-reloaded
+    - tributary

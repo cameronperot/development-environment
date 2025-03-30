@@ -1,0 +1,32 @@
+name: dev-extended
+channels:
+  - defaults
+dependencies:
+  - conda-forge::ta-lib
+  - networkx
+  - pyspark
+  - scikit-learn-intelex
+  - pip:
+    - alphalens-reloaded
+    - backtrader
+    - darts
+    - empyrical-reloaded
+    - interpret
+    - memray
+    - ml_insights
+    - mlflow
+    - mlforecast
+    - neuralforecast
+    - openbb
+    - pandas_ta
+    - pandera
+    - puncc
+    - pyfolio-reloaded
+    - pysabr
+    - pyvinecopulib
+    - quantstats
+    - riskfolio-lib
+    - statsforecast
+    - utilsforecast
+    - venn-abers
+    - web3
