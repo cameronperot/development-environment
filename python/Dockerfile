@@ -35,6 +35,7 @@ RUN echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt
         libsm6 \
         libxext6 \
         libxrender1 \
+        net-tools \
         netbase \
         openssh-client \
         procps \
@@ -44,6 +45,7 @@ RUN echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt
         wget \
         zsh \
     && apt-get clean all \
+    && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
 # run setup scripts
@@ -62,7 +64,7 @@ RUN groupadd -g 1001 ${NEW_USER} \
 # configure the root user's environment
 RUN git clone https://github.com/cameronperot/environment-setup.git /tmp/environment-setup \
     && /tmp/environment-setup/install.py --extract-appimage \
-    && sed -i "s@let g:python3_host_prog.*@let g:python3_host_prog = '/opt/conda/bin/python'@g" /root/.config/nvim/init.vim \
+    && sed -i "s@vim.g.python3_host_prog.*@vim.g.python3_host_prog = '/opt/conda/bin/python'@g" /root/.config/nvim/lua/settings.lua \
     && rm -rf /tmp/environment-setup \
     && conda init zsh
 
@@ -81,14 +83,24 @@ RUN conda env update -n base -f /tmp/environment.yml \
     && conda update conda \
     && conda clean --all -y \
     && pip cache purge \
-    && python -c "import matplotlib.pyplot, mlflow, numpy, pandas, seaborn"
+    && python -c "import matplotlib, numpy, pandas, seaborn"
 
 # configure the user's environment
 RUN git clone https://github.com/cameronperot/environment-setup.git /tmp/environment-setup \
     && /tmp/environment-setup/install.py --extract-appimage \
-    && sed -i "s@let g:python3_host_prog.*@let g:python3_host_prog = '/opt/conda/bin/python'@g" /home/${NEW_USER}/.config/nvim/init.vim \
+    && sed -i "s@vim.g.python3_host_prog.*@vim.g.python3_host_prog = '/opt/conda/bin/python'@g" /home/${NEW_USER}/.config/nvim/lua/settings.lua \
     && rm -rf /tmp/environment-setup \
     && conda init zsh
+
+# install Rust
+ENV PATH="/root/.cargo/bin:${PATH}"
+RUN cd /home/${NEW_USER} \
+    && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
+    && . "${HOME}/.cargo/env" \
+    && cargo install \
+        evcxr_jupyter \
+        tree-sitter-cli \
+    && evcxr_jupyter --install
 
 # set the entrypoint
 ENTRYPOINT ["jupyter", "lab"]
