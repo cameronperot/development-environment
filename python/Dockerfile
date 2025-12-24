@@ -1,5 +1,5 @@
 FROM continuumio/miniconda3 as conda_source
-FROM debian:bookworm
+FROM debian:trixie
 
 # set environment variables
 ENV TERM=xterm-256color \
@@ -31,6 +31,7 @@ RUN echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt
         gnupg \
         htop \
         iputils-ping \
+        libclang-dev \
         libglib2.0-0 \
         libsm6 \
         libxext6 \
@@ -50,8 +51,8 @@ RUN echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt
 
 # run setup scripts
 RUN git clone https://github.com/cameronperot/shell-scripts.git /tmp/shell-scripts \
-    && cd /tmp/shell-scripts/setup-scripts \
-    && ./ta-lib.sh \
+    && cd /tmp/shell-scripts/scripts \
+    && ./install_ta_lib.sh \
     && rm -rf /tmp/shell-scripts
 
 # create the new user
@@ -64,7 +65,7 @@ RUN groupadd -g 1001 ${NEW_USER} \
 # configure the root user's environment
 RUN git clone https://github.com/cameronperot/environment-setup.git /tmp/environment-setup \
     && /tmp/environment-setup/install.py --extract-appimage \
-    && sed -i "s@vim.g.python3_host_prog.*@vim.g.python3_host_prog = '/opt/conda/bin/python'@g" /root/.config/nvim/lua/settings.lua \
+    && sed -i "s@vim.g.python3_host_prog.*@vim.g.python3_host_prog = '/opt/conda/bin/python'@g" /root/.config/nvim/lua/core/options.lua \
     && rm -rf /tmp/environment-setup \
     && conda init zsh
 
@@ -79,7 +80,8 @@ USER ${NEW_USER}
 
 # install Python packages and clean up temp files after
 COPY environment.yml /tmp/environment.yml
-RUN conda env update -n base -f /tmp/environment.yml \
+RUN conda config --set channel_priority strict \
+    && conda env update -n base -f /tmp/environment.yml \
     && conda update conda \
     && conda clean --all -y \
     && pip cache purge \
@@ -88,7 +90,7 @@ RUN conda env update -n base -f /tmp/environment.yml \
 # configure the user's environment
 RUN git clone https://github.com/cameronperot/environment-setup.git /tmp/environment-setup \
     && /tmp/environment-setup/install.py --extract-appimage \
-    && sed -i "s@vim.g.python3_host_prog.*@vim.g.python3_host_prog = '/opt/conda/bin/python'@g" /home/${NEW_USER}/.config/nvim/lua/settings.lua \
+    && sed -i "s@vim.g.python3_host_prog.*@vim.g.python3_host_prog = '/opt/conda/bin/python'@g" /home/${NEW_USER}/.config/nvim/lua/core/options.lua \
     && rm -rf /tmp/environment-setup \
     && conda init zsh
 

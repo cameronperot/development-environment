@@ -3,7 +3,7 @@ services:
   dev:
     image: localhost/python-dev:latest
     container_name: python_dev
-    restart: always
+    restart: on-failure
     ports:
       - "127.0.0.1:8888:8888"
     volumes:

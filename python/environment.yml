@@ -1,70 +1,39 @@
 name: dev
 channels:
   - defaults
+  - conda-forge
 dependencies:
-  - python=3.12
-  - alembic
-  - dask>=2023.1.0
-  - flake8
+  - python=3.13
   - ipykernel
-  - ipympl
-  - ipywidgets
   - jax
   - joblib
   - jupyterlab
-  - lightgbm
+  - mapie
   - matplotlib
   - mypy
   - nodejs
-  - numba::numba
+  - numba
   - numpy
   - pandas-stubs
   - pandas>=2.0.0
   - pip
   - plotly
-  - pre-commit
-  - psutil
+  - polars
+  - psycopg2
   - pydantic
-  - pylint
+  - pynvim
   - pytest
   - pytest-cov
-  - python-graphviz
-  - pytorch::cpuonly
-  - pytorch::pytorch
-  - pytorch::torchaudio
-  - pytorch::torchvision
-  - pytz
+  - ranger-fm
   - requests
+  - ruff
   - scikit-learn
   - scipy
+  - seaborn
   - shap
   - sqlalchemy
   - sqlalchemy-utils
   - statsmodels
   - tqdm
-  - xgboost
+  - uv
   - yarn
-  - pip:
-    - aquirdturtle_collapsible_headings
-    - black[jupyter]
-    - corr-shap
-    - cvxpy
-    - isort
-    - jupyter-server-proxy
-    - jupyterlab-drawio
-    - jupyterlab-execute-time
-    - jupyterlab_vim
-    - lckr-jupyterlab-variableinspector
-    - mapie
-    - nbqa
-    - optuna
-    - optuna-integration
-    - pandas-datareader
-    - pandas_market_calendars
-    - polars
-    - psycopg2
-    - pynvim
-    - ranger-fm
-    - ruff
-    - seaborn
-    - tributary
