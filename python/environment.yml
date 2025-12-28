@@ -24,7 +24,6 @@ dependencies:
   - pynvim
   - pytest
   - pytest-cov
-  - ranger-fm
   - requests
   - ruff
   - scikit-learn
@@ -37,3 +36,5 @@ dependencies:
   - tqdm
   - uv
   - yarn
+  - pip:
+    - ranger-fm
