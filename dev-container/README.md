@@ -15,10 +15,8 @@ This is best used with the following alias that will run a container and mount t
 alias c='podman run \
   -it \
   --rm \
-  --userns=keep-id \
+  --userns keep-id \
   --security-opt label=disable \
-  -e GEMINI_API_KEY="${GEMINI_API_KEY}" \
-  -e OPENROUTER_API_KEY="${OPENROUTER_API_KEY}" \
   -v dev-antigen:/home/dev/.antigen \
   -v dev-amp-config:/home/dev/.config/amp \
   -v dev-amp-data:/home/dev/.local/share/amp \
@@ -35,5 +33,5 @@ c some_executable
 
 A compose file running Jupyter lab is also provided for a longer running environment:
 ```bash
-podman compose -f compose.yml up
+podman-compose -f compose.yml up
 ```
