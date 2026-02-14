@@ -49,12 +49,6 @@ RUN echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-# run setup scripts
-RUN git clone https://github.com/cameronperot/shell-scripts.git /tmp/shell-scripts \
-    && cd /tmp/shell-scripts/scripts \
-    && ./install_ta_lib.sh \
-    && rm -rf /tmp/shell-scripts
-
 # create the new user
 ARG NEW_USER=dev
 RUN groupadd -g 1001 ${NEW_USER} \
